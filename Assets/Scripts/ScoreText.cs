@@ -5,29 +5,18 @@ using UnityEngine;
 
 public class ScoreText : MonoBehaviour
 {
-    [SerializeField] private TMP_Text Scoretext;
+    public TextMeshProUGUI Scoretext;
     public ScoreButton ScoreButton;
 
     private void Awake()
     {
-        Scoretext = GetComponent<TMP_Text>();
+        Scoretext = GetComponent<TextMeshProUGUI>();
         ScoreButton.Scorebutton.onClick.AddListener(RefreshUI);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void RefreshUI()
     {
-       Scoretext.text = ScoreButton.Score.ToString("N2");
+       Scoretext.text = ScoreButton.Score.ToString();
     }
 }
